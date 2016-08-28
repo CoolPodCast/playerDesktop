@@ -1,0 +1,14 @@
+{
+  "name": "coolpodcast",
+  "productName": "CoolPodCast Player",
+  "description": "Player de PodCast",
+  "version": "1.0.0",
+  "author": "",
+  "copyright": "© 2016, CoolPodCastPlayer.",
+  "homepage": "http://coolpodcastplayer.github.io",
+  "license": "MIT",
+  "main": "background.js",
+  "dependencies": {
+    "fs-jetpack": "^0.9.0"
+  }
+}
