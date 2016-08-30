@@ -3,3 +3,10 @@ node_js:
   - "node"
   - "6.5.0"
   - "4.5.0"
+
+branches:
+  only:
+  - master
+  
+notifications:
+  email: false
