@@ -1,4 +1,4 @@
-CoolPodCastPlayer
+CoolPodCastPlayer [![Build Status](https://travis-ci.org/CoolPodCast/playerDesktop.svg?branch=master)](https://travis-ci.org/CoolPodCast/playerDesktop)
 ==============
 Descrição sobre o aplicativo
 
