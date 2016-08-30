@@ -20,20 +20,20 @@ npm start
 Existem **dois** `package.json`:
 
 #### 1. `package.json` é para o ambiente de desenvolvimento (development)
-Caminho: `playerDesktop/package.json`. Aqui é declarado toda dependencia para o desenvolvimento do projeto e seus scripts. **Este arquivo não é distribuido juntamente com sua aplicação empacotada!**
+Caminho: `playerDesktop/package.json`. Aqui é declarado toda dependência para o desenvolvimento do projeto e seus scripts. **Este arquivo não é distribuido juntamente com a aplicação empacotada!**
 
 #### 2. `package.json` da aplicação
-Caminho: `playerDesktop/app/package.json`. Este é o arquivo **real** das dependências do seu projeto que serão distribuidas.
+Caminho: `playerDesktop/app/package.json`. Este é o arquivo **real** das dependências do projeto que serão distribuidas.
 
 ## Pastas
 
-O aplicativo é dividido em duas pastas principais...
+O aplicativo é dividido em duas pastas principais:
 
-`src` - esta pasta é destinado para os arquivos que necessitam de ser convertidos ou compilados (arquivos que não podem ser utilizadas directamente por Electron).
+`src` - esta pasta é destinada para os arquivos que necessitam ser convertidos ou compilados (arquivos que não podem ser utilizadas diretamente pelo Electron).
 
-`app` - contém todos os arquivos estáticos (imagens, CSS, HTML, etc.) que não precisão de pré-processamento.
+`app` - contém todos os arquivos estáticos (imagens, CSS, HTML, etc.) que não precisam de pré-processamento.
 
-O build analisa todos os arquivos da pasta `src` e converte ou compula para a pasta `app`.
+O build analisa todos os arquivos da pasta `src` e os converte ou compila para a pasta `app`.
 
 # Desenvolvimento
 
@@ -42,7 +42,7 @@ O build analisa todos os arquivos da pasta `src` e converte ou compula para a pa
 ```
 npm install
 ```
-Aqui irá instalar o Electron runtime e toda dependência do projeto do `package.json` da raiz, em seguida será instalado as dependências do `package.json` da pasta app.
+Aqui irá instalar o runtime do Electron e toda dependência do projeto do `package.json` da raiz, em seguida será instalado as dependências do `package.json` da pasta app.
 
 ### Rodando app
 
@@ -60,11 +60,9 @@ npm install name_of_npm_module --save
 
 ### Trabalhando com módulos
 
-Thanks to [rollup](https://github.com/rollup/rollup) you can (and should) use ES6 modules for all code in `src` folder. But because ES6 modules still aren't natively supported you can't use it in `app` folder.
+Graças ao [rollup](https://github.com/rollup/rollup), podemos (e devemos) usar módulos ES6 para todo o código em `src`. Mas como os módulos ES6 ainda não são suportados nativamente, você não pode usá-lo diretamente de `app`.
 
-Graças a rollup](https://github.com/rollup/rollup), podemos (e devemos) usar módulos ES6 para todo o código em `src`. Mas como os módulos ES6 ainda não são suportados nativamente você não pode usá-lo direto em `app`.
-
-Sendo assim para os arquivos em `src` fazemos assim:
+Sendo assim, para os arquivos em `src` fazemos assim:
 ```js
 import myStuff from './my_lib/my_stuff';
 ```
@@ -82,7 +80,7 @@ Usando [electron-mocha](https://github.com/jprichardson/electron-mocha) com [cha
 ```
 npm test
 ```
-Executa os testes para todos os arquivos da pasta `src` que respeita o padrão de nomenclatura `*.spec.js`.
+Executa os testes para todos os arquivos da pasta `src` que respeitam o padrão de nomenclatura `*.spec.js`.
 
 Estes testes vão ser conectados com [Sistema de integração contínua](https://github.com/atom/electron/blob/master/docs/tutorial/testing-on-headless-ci.md).
 
@@ -92,7 +90,7 @@ Usando [mocha](https://mochajs.org/) e [spectron](http://electron.atom.io/spectr
 ```
 npm run e2e
 ```
-Roda todos os testes contidos no diretório `e2e` que respeitão o padrão `*.e2e.js`.
+Roda todos os testes contidos no diretório `e2e` que respeitam o padrão `*.e2e.js`.
 
 # Empacotando a aplicação
 
