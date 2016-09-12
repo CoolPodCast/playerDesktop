@@ -1,2 +1,5 @@
 # playerDesktop - Design files
-Simple player desktop podcast 
+
+## Layout:
+![image](layout.png)
+
