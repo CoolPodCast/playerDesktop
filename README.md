@@ -1,5 +1,7 @@
 CoolPodCastPlayer [![Build Status](https://travis-ci.org/CoolPodCast/playerDesktop.svg?branch=master)](https://travis-ci.org/CoolPodCast/playerDesktop)
 ==============
+![image](https://cloud.githubusercontent.com/assets/1442874/18422637/e89d213e-7873-11e6-98d9-6d8127b37f9a.png)
+
 Descrição sobre o aplicativo
 
 # Começo
