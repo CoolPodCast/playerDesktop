@@ -12,8 +12,6 @@ import createWindow from './helpers/window';
 // in config/env_xxx.json file.
 import env from './env';
 
-var mainWindow;
-
 var setApplicationMenu = function () {
     var menus = [editMenuTemplate];
     if (env.name !== 'production') {
@@ -33,24 +31,42 @@ if (env.name !== 'production') {
 app.on('ready', function () {
     setApplicationMenu();
 
-    var mainWindow = createWindow('main', {
+    var splashWindow = createWindow('splash', {
         width: 450,
         height: 400,
         show: false,
         frame:false,
-        backgroundColor: '#3d9eae',
+        backgroundColor: '#3d9eaf',
         resizable:false
     }, true);
 
-    mainWindow.loadURL('file://' + __dirname + '/app.html');
-    mainWindow.once('ready-to-show', function (){
-      mainWindow.show();
+    splashWindow.loadURL('file://' + __dirname + '/splash.html');
+    splashWindow.once('ready-to-show', function (){
+      splashWindow.show();
+      setTimeout(function (){
+        createMainAppWindow(splashWindow);
+      }, 4000);
     })
 
     if (env.name === 'development') {
         //mainWindow.openDevTools();
     }
 });
+
+var createMainAppWindow = function (splashWindow){
+  var mainWindow = createWindow('app', {
+      width: 1024,
+      height: 768,
+      show: false,
+      frame:false,
+      backgroundColor: '#171817'
+  }, true);
+  mainWindow.loadURL('file://' + __dirname + '/app.html');
+  mainWindow.once('ready-to-show', function (){
+    mainWindow.show();
+    splashWindow.close();
+  })
+}
 
 app.on('window-all-closed', function () {
     app.quit();
