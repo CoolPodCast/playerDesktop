@@ -2,12 +2,14 @@
 @title-color:#fff;
 @subtitle-color:#949494;
 @bar-item-opacity:0.5;
-@bar-icon-color:#939393;
+@bar-button-color:#939393;
+@bar-button-color-hover:#fff;
 @bar-line-background:rgba(255,255,255,0.05);
 @body-background:#171817;
 @box-background:#1e1f1e;
 @title-font-size:13px;
 @subtitle-font-size:13px;
+@menu-width:270px;
 
 * {
   margin: 0;
@@ -16,6 +18,7 @@
   -webkit-user-select: none;
   font-family: 'Ubuntu', sans-serif;
   cursor: default;
+  outline: none;
 }
 html, body {
     width: 100%;
@@ -75,17 +78,21 @@ html, body {
   background-position: 0 center;
 }
 .menu {
-  width: 270px;
+  z-index: 200;
+  width: @menu-width;
   background-color: @bar-background;
   height: 100%;
   position: fixed;
   .actions {
     float: right;
-    color: @bar-icon-color;
+    color: @bar-button-color;
     padding-top: 20px;
     i:before {
       font-size: 14px;
     }
+  }
+  .actions i:hover {
+    color: @bar-button-color-hover;
   }
 }
 .bar {
@@ -128,4 +135,36 @@ html, body {
     background-image: url(../images/item-selected.png);
     background-position: 0 center;
   }
+  button {
+    border:1px solid @bar-button-color;
+    color: @bar-button-color;
+    background: none;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    i {
+      float: left;
+      margin-right: 10px;
+    }
+    i:before {
+        font-size: 14px;
+    }
+    .text {
+      float: left;
+    }
+  }
+  button:hover {
+    border-color: @bar-button-color-hover;
+    color: @bar-button-color-hover;
+  }
+  .buttons {
+    padding: 15px;
+  }
+}
+.body {
+  z-index: 100;
+  position: fixed;
+  padding-left: @menu-width;
+  width: 100%;
 }
