@@ -8,6 +8,9 @@ var plumber = require('gulp-plumber');
 var jetpack = require('fs-jetpack');
 var bundle = require('./bundle');
 var utils = require('./utils');
+var babel = require("gulp-babel");
+var sourcemaps = require("gulp-sourcemaps");
+var concat = require("gulp-concat");
 
 var projectDir = jetpack;
 var srcDir = jetpack.cwd('./src');
@@ -17,6 +20,16 @@ gulp.task('bundle', function () {
     return Promise.all([
         bundle(srcDir.path('background.js'), destDir.path('background.js')),
     ]);
+});
+
+gulp.task('babel', function() {
+  return gulp.src("src/modules/**/*.js")
+    //.on('error', console.error.bind(console))
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(concat("all.js"))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("app"));
 });
 
 gulp.task('less', function () {
@@ -49,4 +62,4 @@ gulp.task('watch', function () {
     }));
 });
 
-gulp.task('build', ['bundle', 'less', 'environment']);
+gulp.task('build', ['bundle', 'babel', 'less', 'environment']);

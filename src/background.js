@@ -58,7 +58,6 @@ var createMainAppWindow = function (splashWindow){
       width: 1024,
       height: 768,
       show: false,
-      frame:false,
       backgroundColor: '#171817'
   }, true);
   mainWindow.loadURL('file://' + __dirname + '/app.html');
