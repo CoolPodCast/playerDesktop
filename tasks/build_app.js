@@ -23,13 +23,13 @@ gulp.task('bundle', function () {
 });
 
 gulp.task('babel', function() {
-  return gulp.src("src/modules/**/*.js")
+  return gulp.src("src/components/**/*.js")
     //.on('error', console.error.bind(console))
     .pipe(sourcemaps.init())
     .pipe(babel())
-    .pipe(concat("all.js"))
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("app"));
+    //.pipe(concat("all.js"))
+    //.pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("app/components"));
 });
 
 gulp.task('less', function () {
